@@ -1,0 +1,190 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+// Classes for different modules of the hospital management system
+
+class Patient {
+    String id, name, age, gender, contact;
+
+    Patient(String id, String name, String age, String gender, String contact) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+        this.contact = contact;
+    }
+}
+
+class Appointment {
+    String patientId, doctor, date, time;
+
+    Appointment(String patientId, String doctor, String date, String time) {
+        this.patientId = patientId;
+        this.doctor = doctor;
+        this.date = date;
+        this.time = time;
+    }
+}
+
+class EHR {
+    String patientId, diagnosis, treatment;
+
+    EHR(String patientId, String diagnosis, String treatment) {
+        this.patientId = patientId;
+        this.diagnosis = diagnosis;
+        this.treatment = treatment;
+    }
+}
+
+class Bill {
+    String patientId;
+    double amount;
+
+    Bill(String patientId, double amount) {
+        this.patientId = patientId;
+        this.amount = amount;
+    }
+}
+
+class InventoryItem {
+    String itemName;
+    int quantity;
+
+    InventoryItem(String itemName, int quantity) {
+        this.itemName = itemName;
+        this.quantity = quantity;
+    }
+}
+
+class Staff {
+    String id, name, role;
+
+    Staff(String id, String name, String role) {
+        this.id = id;
+        this.name = name;
+        this.role = role;
+    }
+}
+
+// Main System Class
+public class HospitalManagementSystem {
+    static Scanner scanner = new Scanner(System.in);
+
+    static ArrayList<Patient> patients = new ArrayList<>();
+    static ArrayList<Appointment> appointments = new ArrayList<>();
+    static ArrayList<EHR> ehrRecords = new ArrayList<>();
+    static ArrayList<Bill> bills = new ArrayList<>();
+    static ArrayList<InventoryItem> inventory = new ArrayList<>();
+    static ArrayList<Staff> staffList = new ArrayList<>();
+
+    // Patient Registration
+    static void registerPatient() {
+        System.out.print("Enter Patient ID: ");
+        String id = scanner.next();
+        System.out.print("Enter Name: ");
+        String name = scanner.next();
+        System.out.print("Enter Age: ");
+        String age = scanner.next();
+        System.out.print("Enter Gender: ");
+        String gender = scanner.next();
+        System.out.print("Enter Contact: ");
+        String contact = scanner.next();
+
+        patients.add(new Patient(id, name, age, gender, contact));
+        System.out.println("Patient Registered Successfully!");
+    }
+
+    // Appointment Scheduling
+    static void scheduleAppointment() {
+        System.out.print("Enter Patient ID: ");
+        String patientId = scanner.next();
+        System.out.print("Enter Doctor Name: ");
+        String doctor = scanner.next();
+        System.out.print("Enter Date (YYYY-MM-DD): ");
+        String date = scanner.next();
+        System.out.print("Enter Time (HH:MM): ");
+        String time = scanner.next();
+
+        appointments.add(new Appointment(patientId, doctor, date, time));
+        System.out.println("Appointment Scheduled Successfully!");
+    }
+
+    // Add Electronic Health Record
+    static void addEHR() {
+        System.out.print("Enter Patient ID: ");
+        String patientId = scanner.next();
+        System.out.print("Enter Diagnosis: ");
+        String diagnosis = scanner.next();
+        System.out.print("Enter Treatment: ");
+        String treatment = scanner.next();
+
+        ehrRecords.add(new EHR(patientId, diagnosis, treatment));
+        System.out.println("EHR Added Successfully!");
+    }
+
+    // Add Billing Information
+    static void generateBill() {
+        System.out.print("Enter Patient ID: ");
+        String patientId = scanner.next();
+        System.out.print("Enter Amount: ");
+        double amount = scanner.nextDouble();
+
+        bills.add(new Bill(patientId, amount));
+        System.out.println("Bill Generated Successfully!");
+    }
+
+    // Inventory Management
+    static void manageInventory() {
+        System.out.print("Enter Item Name: ");
+        String itemName = scanner.next();
+        System.out.print("Enter Quantity: ");
+        int quantity = scanner.nextInt();
+
+        inventory.add(new InventoryItem(itemName, quantity));
+        System.out.println("Inventory Updated Successfully!");
+    }
+
+    // Add Staff Information
+    static void addStaff() {
+        System.out.print("Enter Staff ID: ");
+        String id = scanner.next();
+        System.out.print("Enter Name: ");
+        String name = scanner.next();
+        System.out.print("Enter Role: ");
+        String role = scanner.next();
+
+        staffList.add(new Staff(id, name, role));
+        System.out.println("Staff Added Successfully!");
+    }
+
+    // Display Menu
+    public static void main(String[] args) {
+        while (true) {
+            System.out.println("\n--- Hospital Management System ---");
+            System.out.println("1. Register Patient");
+            System.out.println("2. Schedule Appointment");
+            System.out.println("3. Add EHR");
+            System.out.println("4. Generate Bill");
+            System.out.println("5. Manage Inventory");
+            System.out.println("6. Add Staff");
+            System.out.println("7. Exit");
+
+            System.out.print("Enter Your Choice: ");
+            int choice = scanner.nextInt();
+
+            switch (choice) {
+                case 1 -> registerPatient();
+                case 2 -> scheduleAppointment();
+                case 3 -> addEHR();
+                case 4 -> generateBill();
+                case 5 -> manageInventory();
+                case 6 -> addStaff();
+                case 7 -> {
+                    System.out.println("Exiting System. Goodbye!");
+                    return;
+                }
+                default -> System.out.println("Invalid Choice! Try Again.");
+            }
+        }
+    }
+}
