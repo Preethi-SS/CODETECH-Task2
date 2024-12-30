@@ -50,5 +50,9 @@ The objective of this project is to create a comprehensive Hospital Management S
 3. Open the project in any Java IDE.
 4. Compile and run the `HospitalManagementSystem` class to launch the application.
 
+## Output
+![HospitalManagementSystem(java)](https://github.com/user-attachments/assets/e7eb749c-1ef6-4ee2-9dcd-98fde1d2766e)
+
+
 
 
