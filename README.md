@@ -3,7 +3,7 @@
 **ID:** CT08FJI  
 **Domain:** Java programming  
 **Duration:** December 20, 2024 to January 20, 2025  
-**Mentor:** NEELA SANTHOSH KUMAR
+**Mentor:** SRAVANI GOUNI
 
 ## Overview of the Project
 ### Project: Hospital Management System
